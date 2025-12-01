@@ -52,6 +52,8 @@ Change once → updates everywhere!
 
 **Result:** Slides link to specific report sections online!
 
+To test this out download and open a copy of the `presentation.pdf` file, navigate to page 6 which references the First-Order Thermal Response Model. At the bottom of the slide there is a hyperlink: [→ Full derivation and mathematical details](https://ammarbarbee17.github.io/janus-tex/report.pdf#thermalmodel) which should bring you to the appropiate report section with the full details!
+
 ## Customization Examples
 
 **Change theme:** Edit `\usetheme{Madrid}` in `main.tex`  
