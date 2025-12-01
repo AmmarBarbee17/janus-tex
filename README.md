@@ -1,31 +1,31 @@
-# Dual-Mode LaTeX Template: Report + Presentation
+# Janus-TeX
 
-Creates **both** a detailed report and presentation from the same source files, with clickable hyperlinks from slides to specific report sections.
+**Two faces, one source.** Like the Roman god Janus, this LaTeX template looks both ways—generating a detailed report **and** presentation from the same content, with clickable hyperlinks between them.
 
 ## Files
 
 | File | Purpose |
 |------|----------|
-| `template_main.tex` | Configuration, title, author, packages |
-| `template_report_sections.tex` | Full report content |
-| `template_presentation_slides.tex` | Slide content |
-| `template_shared_elements.tex` | **Reusable figures/tables/equations** |
+| `main.tex` | Configuration, title, author, packages |
+| `report_sections.tex` | Full report content |
+| `presentation_slides.tex` | Slide content |
+| `shared_elements.tex` | **Reusable figures/tables/equations** |
 | `compile.bat` | Compilation script |
 | `figures/` | Image files |
 
 ## Quick Start
 
 1. **Compile**: `.\compile.bat` → generates `report.pdf` + `presentation.pdf`
-2. **Customize** `template_main.tex`: title, author, institution
-3. **Add content** to `template_report_sections.tex` and `template_presentation_slides.tex`
+2. **Customize** `main.tex`: title, author, institution
+3. **Add content** to `report_sections.tex` and `presentation_slides.tex`
 4. **Recompile**: `.\compile.bat`
 
 ## Key Feature: True Content Sharing
 
-Define figures/tables/equations **once** in `template_shared_elements.tex`, use in **both** formats:
+Define figures/tables/equations **once** in `shared_elements.tex`, use in **both** formats:
 
 ```latex
-% In template_shared_elements.tex - define once:
+% In shared_elements.tex - define once:
 \newcommand{\figureMyPlot}{\includegraphics{figures/plot.png}}
 \newcommand{\tableResults}{\begin{tabular}...\end{tabular}}
 \newcommand{\eqModel}{y = mx + b}
@@ -54,17 +54,17 @@ Change once → updates everywhere!
 
 ## Customization Examples
 
-**Change theme:** Edit `\usetheme{Madrid}` in `template_main.tex`  
+**Change theme:** Edit `\usetheme{Madrid}` in `main.tex`  
 **Add section:** Copy existing section pattern in report/slides, update `\hypertarget{}`  
-**Add figure:** Define `\newcommand{\figureX}{...}` in `template_shared_elements.tex`, use in both formats
+**Add figure:** Define `\newcommand{\figureX}{...}` in `shared_elements.tex`, use in both formats
 
 ## How It Works
 
-`template_main.tex` checks `\ifdefined\ispresentation`:
-- **NO** → `\documentclass{article}` → loads `template_report_sections.tex` → `report.pdf`
-- **YES** → `\documentclass{beamer}` → loads `template_presentation_slides.tex` → `presentation.pdf`
+`main.tex` checks `\ifdefined\ispresentation`:
+- **NO** → `\documentclass{article}` → loads `report_sections.tex` → `report.pdf`
+- **YES** → `\documentclass{beamer}` → loads `presentation_slides.tex` → `presentation.pdf`
 
-Both load `template_shared_elements.tex` for reusable content.
+Both load `shared_elements.tex` for reusable content.
 
 ## PowerPoint Conversion
 

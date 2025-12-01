@@ -10,8 +10,8 @@ echo.
 REM Compile Report (2 passes)
 echo [1/2] Compiling REPORT...
 echo -----------------------------------------
-pdflatex -jobname=report template_main.tex
-pdflatex -jobname=report template_main.tex
+pdflatex -jobname=report main.tex
+pdflatex -jobname=report main.tex
 if errorlevel 1 (
     echo ERROR: Report compilation failed
     exit /b 1
@@ -22,8 +22,8 @@ echo.
 REM Compile Presentation (2 passes)
 echo [2/2] Compiling PRESENTATION...
 echo ----------------------------------------
-pdflatex -jobname=presentation "\def\ispresentation{1} \input{template_main.tex}"
-pdflatex -jobname=presentation "\def\ispresentation{1} \input{template_main.tex}"
+pdflatex -jobname=presentation "\def\ispresentation{1} \input{main.tex}"
+pdflatex -jobname=presentation "\def\ispresentation{1} \input{main.tex}"
 if errorlevel 1 (
     echo ERROR: Presentation compilation failed
     exit /b 1
