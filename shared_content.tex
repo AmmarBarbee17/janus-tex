@@ -1,0 +1,78 @@
+% Shared content between report and presentation
+% This file contains figures, tables, and other content used in both modes
+
+% Custom macros and commands used in both formats
+\newcommand{\keyword}[1]{\textbf{#1}}
+\newcommand{\term}[1]{\textit{#1}}
+
+% Example: Shared figure that appears in both report and presentation
+\ifdefined\ispresentation
+    % In presentation mode, might want different sizing or caption style
+    \reportonly{}  % Placeholder, will be empty in slides
+\else
+    % In report mode, include with full caption
+    \begin{figure}[htbp]
+        \centering
+        % \includegraphics[width=0.7\textwidth]{figures/main_result.png}
+        \fbox{\parbox{0.7\textwidth}{\centering [Your Figure Here]\\ 
+        Replace with: \\
+        \texttt{\textbackslash includegraphics[width=0.7\textbackslash textwidth]\{figures/main\_result.png\}}}}
+        \caption{Main experimental or analytical result. This caption provides detailed explanation of what is shown, methodology used to generate the figure, and key observations.}
+        \label{fig:main_result}
+    \end{figure}
+\fi
+
+% Example: Shared table
+\ifdefined\ispresentation
+    % Simplified table for slides
+    \slideonly{}  % Will be manually placed in slides where needed
+\else
+    % Full detailed table for report
+    \begin{table}[htbp]
+        \centering
+        \caption{Summary of key results and comparisons}
+        \label{tab:results}
+        \begin{tabular}{lcccc}
+            \hline
+            \textbf{Method} & \textbf{Metric 1} & \textbf{Metric 2} & \textbf{Metric 3} & \textbf{Score} \\
+            \hline
+            Approach A & 0.85 & 0.92 & 0.78 & 85.0 \\
+            Approach B & 0.90 & 0.88 & 0.82 & 86.7 \\
+            Approach C & 0.82 & 0.95 & 0.80 & 85.7 \\
+            \textbf{Proposed} & \textbf{0.93} & \textbf{0.94} & \textbf{0.89} & \textbf{92.0} \\
+            \hline
+        \end{tabular}
+    \end{table}
+\fi
+
+% Shared mathematical definitions
+\ifdefined\ispresentation
+    % In slides, might define these more concisely
+\else
+    % In report, can have more detailed definitions
+    \reportonly{
+        \subsection*{Key Definitions}
+        \begin{itemize}
+            \item \keyword{Parameter $\theta$}: The vector of model parameters estimated from data
+            \item \keyword{Objective Function $J(\theta)$}: The cost function minimized during optimization
+            \item \keyword{Convergence Criterion}: The threshold below which optimization terminates
+        \end{itemize}
+    }
+\fi
+
+% Example of content that adapts based on mode
+\ifdefined\ispresentation
+    % Empty or minimal content for presentation
+\else
+    % Additional explanatory content for report only
+    \reportonly{
+        \subsection*{Additional Context}
+        This section provides additional context that is too detailed for presentation slides but important for the complete report. This might include:
+        \begin{itemize}
+            \item Derivations of key equations
+            \item Extended discussion of assumptions
+            \item Detailed parameter sensitivity analysis
+            \item Comparison with alternative approaches
+        \end{itemize}
+    }
+\fi

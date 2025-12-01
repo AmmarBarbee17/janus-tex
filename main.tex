@@ -1,0 +1,80 @@
+% Main LaTeX file - Dual Mode: Report & Presentation
+% Compile with: pdflatex main.tex (for report)
+%              pdflatex "\def\ispresentation{1} \input{main.tex}" (for presentation)
+
+% Mode selection - uncomment one or use command line
+\ifdefined\ispresentation
+    \documentclass[aspectratio=169]{beamer}
+    \usetheme{Madrid}
+    \usecolortheme{default}
+\else
+    \documentclass[12pt,a4paper]{article}
+    \usepackage[margin=1in]{geometry}
+\fi
+
+% Common packages for both modes
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+% Configure hyperref
+\ifdefined\ispresentation
+    \hypersetup{
+        colorlinks=true,
+        linkcolor=blue,
+        urlcolor=blue,
+        citecolor=blue
+    }
+\else
+    \hypersetup{
+        colorlinks=true,
+        linkcolor=blue,
+        urlcolor=blue,
+        citecolor=blue,
+        pdftitle={Your Report Title},
+        pdfauthor={Your Name}
+    }
+\fi
+
+% GitHub Pages URL - CUSTOMIZE THIS
+\newcommand{\reporturl}{https://yourusername.github.io/your-repo/report.pdf}
+
+% Custom commands for dual-mode content
+\ifdefined\ispresentation
+    \newcommand{\reportonly}[1]{}
+    \newcommand{\slideonly}[1]{#1}
+\else
+    \newcommand{\reportonly}[1]{#1}
+    \newcommand{\slideonly}[1]{}
+\fi
+
+% Title information
+\title{Your Project Title}
+\author{Your Name}
+\date{\today}
+
+\ifdefined\ispresentation
+    \institute{Your Institution}
+\fi
+
+\begin{document}
+
+\ifdefined\ispresentation
+    \frame{\titlepage}
+\else
+    \maketitle
+    \tableofcontents
+    \newpage
+\fi
+
+% Include shared content and mode-specific sections
+\input{shared_content.tex}
+
+\ifdefined\ispresentation
+    \input{slides_content.tex}
+\else
+    \input{report_content.tex}
+\fi
+
+\end{document}

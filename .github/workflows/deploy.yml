@@ -1,0 +1,50 @@
+# GitHub Actions workflow to automatically deploy report.pdf to GitHub Pages
+# This is OPTIONAL - you can also manually push the PDF
+
+name: Deploy Report to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**.tex'
+      - 'figures/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Install LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-latex-base texlive-latex-extra texlive-fonts-recommended
+      
+      - name: Compile Report
+        run: |
+          cd "LaTeX"
+          pdflatex -interaction=nonstopmode main.tex
+          pdflatex -interaction=nonstopmode main.tex
+          mv main.pdf report.pdf
+      
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: 'LaTeX'
+      
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
