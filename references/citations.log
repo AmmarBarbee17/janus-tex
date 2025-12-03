@@ -1,0 +1,30 @@
+2025-12-02 18:51:29,325 [INFO] Mirroring terminal output to references\citations.log
+2025-12-02 18:51:29,325 [INFO] Processing 1-s2.0-S2666682024000720-main.pdf
+2025-12-02 18:51:30,150 [INFO] [x] Extract text (first two pages)
+2025-12-02 18:51:30,151 [INFO] Attempting DOI lookup for 10.1016/j.jcomc.2024.100503
+2025-12-02 18:51:31,908 [INFO] DOI lookup succeeded for 1-s2.0-S2666682024000720-main.pdf
+2025-12-02 18:51:31,908 [INFO] [x] Strategy 1: DOI lookup
+2025-12-02 18:51:31,924 [INFO] Candidate citation for 1-s2.0-S2666682024000720-main.pdf:
+2025-12-02 18:51:31,924 [INFO]     • Title: Application of robotic manipulation for carbon fiber reinforced polymers manufacturing- A survey
+2025-12-02 18:51:31,927 [INFO]     • Author: Khan, Wajih Ahmed and Anjum, Muhammad Umar and Khan, Harris and Hamza, Amir and Jabbar, Hamid and Zafar, Tayyab and Ansari, Ali R. and Nawaz, Raheel
+2025-12-02 18:51:31,928 [INFO]     • Journal: Composites Part C: Open Access
+2025-12-02 18:51:31,928 [INFO]     • Year: 2024
+2025-12-02 18:51:31,928 [INFO]     • Doi: 10.1016/j.jcomc.2024.100503
+2025-12-02 18:51:31,928 [INFO] [x] Review + confirm
+2025-12-02 18:51:31,928 [INFO] Approval: Derived from Strategy 1: DOI lookup
+2025-12-02 18:51:31,951 [INFO] Appended citation to references\references.bib
+2025-12-02 18:51:31,955 [INFO] Renamed 1-s2.0-S2666682024000720-main.pdf → Khan2024.pdf
+2025-12-02 18:51:31,957 [INFO] [x] Append to references.bib + rename PDF
+2025-12-02 18:51:31,970 [INFO] [-] Strategy 2: Scholar lookup — Resolved via DOI
+2025-12-02 18:51:31,970 [INFO] [-] Strategy 3: Manual entry prompts — Not needed
+2025-12-02 18:51:31,972 [INFO] 
+2025-12-02 18:51:31,972 [INFO] Processing Broetje-Automation_demonstrate.pdf
+2025-12-02 18:51:32,069 [WARNING] Cannot set gray stroke color because /'Pat1' is an invalid float value
+2025-12-02 18:51:32,593 [INFO] [x] Extract text (first two pages)
+2025-12-02 18:51:32,593 [INFO] [-] Strategy 1: DOI lookup — No DOI detected
+2025-12-02 18:51:32,594 [INFO] [-] Strategy 2: Scholar lookup — No title candidate
+2025-12-02 18:51:32,594 [INFO] Prompting user for manual citation (Broetje-Automation_demonstrate.pdf)
+2025-12-02 18:51:32,594 [INFO] [!] Strategy 3: Manual entry prompts — Missing required fields
+2025-12-02 18:51:32,594 [INFO] [-] Review + confirm — No candidate
+2025-12-02 18:51:32,594 [INFO] [-] Append to references.bib + rename PDF — No candidate
+2025-12-02 18:51:32,594 [WARNING] Rejecting Broetje-Automation_demonstrate.pdf: All strategies exhausted

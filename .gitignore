@@ -3,7 +3,7 @@
 # LaTeX auxiliary files
 *.aux
 *.lof
-*.log
+# *.log
 *.lot
 *.fls
 *.out
@@ -71,3 +71,11 @@ desktop.ini
 *~
 .vscode/
 .idea/
+
+# Python virtual environments
+.venv/
+__pycache__/
+
+# AI/Copilot instructions (user-specific)
+.github/
+clean-up-plan.md

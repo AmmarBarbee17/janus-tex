@@ -68,6 +68,32 @@ To test this out download and open a copy of the `presentation.pdf` file, naviga
 
 Both load `shared_elements.tex` for reusable content.
 
+## Citation Extraction Workflow
+
+The `scripts/extract_citations.py` helper walks through multiple strategies before asking for help. The Mermaid diagram below shows when automated, LLM-assisted, or manual steps run:
+
+```mermaid
+flowchart TD
+    A(["New reference PDF"]) --> B["Extract text (first two pages)"]
+    B --> C{DOI detected?}
+    C -->| Yes | D["Strategy 1: DOI lookup"]
+    D -->| BibTeX returned | R["User review + confirm"]
+    D -->| Fail | E
+    C -->| No | E{Title candidate from text?}
+    E -->| Yes | F["Strategy 2: Scholar lookup"]
+    F -->| BibTeX returned | R
+    F -->| Fail | G
+    E -->| No | G["Strategy 3: Manual entry prompts"]
+    G -->| Complete | R
+    G -->| Aborted | M["Move PDF to rejected/ + log reason"]
+    R -->| Accept | L["Append to references.bib + rename PDF"]
+    R -->| Reject | M
+    linkStyle default stroke:#88c7ff,stroke-width:2px,color:#1a1a1a
+```
+
+- **Automated steps**: DOI fetch, Scholar lookup, renaming, rejection logging.
+- **User intervention**: Manual BibTeX entry, confirmation prompts, or explicit rejection.
+
 ## PowerPoint Conversion
 
 **Recommended method:** Use [Adobe's free PDF to PowerPoint converter](https://www.adobe.com/acrobat/online/pdf-to-ppt.html)

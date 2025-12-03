@@ -1,0 +1,25 @@
+# Python dependencies for Janus-TeX scripts
+
+# PDF processing
+pdfplumber>=0.10.0
+PyPDF2>=3.0.0
+
+# OCR fallback
+pytesseract>=0.3.10
+Pillow>=10.0.0
+
+# Citation APIs
+requests>=2.31.0
+scholarly>=1.7.0
+
+# BibTeX parsing
+bibtexparser>=1.4.0
+
+# LLM-assisted title extraction (optional)
+google-generativeai>=0.6.0
+
+# Optional: File watching (for --watch mode)
+# watchdog>=3.0.0
+
+# Test utilities
+pytest>=7.0.0
